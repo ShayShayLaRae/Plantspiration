@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    background: #8A9B68;
+}
+
+.logo{
+    color: white;
+}
+
+/* nav{
+    display: flex;
+    justify-content: space-between;
+} */
