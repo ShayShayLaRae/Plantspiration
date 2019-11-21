@@ -48,7 +48,6 @@ module.exports = {
             res.status(200).send(result)
         }).catch(err => {
             console.log(err);
-            
         })
     },
     addPlant(req, res) {
@@ -74,7 +73,6 @@ module.exports = {
         })
         .catch(err => {
             console.log(err);
-            
         })
     },
     deletePlant(req, res) {
@@ -92,7 +90,11 @@ module.exports = {
         const db = req.app.get ('db');
         const {user_id} = req.params;
         db.edit_product({user_id, username, password, img, email})
-        .then(user => res.status(200).send(user))
+        .then(user => {
+            res.status(200).send(user)
+        }).catch(err => {
+            console.log(err);
+        })
     },
     editPlant (req, res) {
         const {
@@ -102,6 +104,10 @@ module.exports = {
         const {plant_id} = req.params;
         db.edit_plant({
             plant_id, img_url, common_name, scientific_name, propagation_type, soil_type, sun, acquired, current_list})
-            .then(plant => res.status(200).send(plant))
+            .then(plant => {
+                res.status(200).send(plant)
+            }).catch(err => {
+                console.log(err);
+            })
     }
 }

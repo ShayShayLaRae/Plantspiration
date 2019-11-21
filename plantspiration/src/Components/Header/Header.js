@@ -6,7 +6,10 @@ export default class Header extends Component{
     render() {
         return(
             <div>
-                Header
+                {/* <button></button> */}
+                <button>
+                    Login
+                </button>
             </div>
         )
     }

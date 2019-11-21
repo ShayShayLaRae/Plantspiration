@@ -9,6 +9,8 @@
     "cors": "^2.8.5",
     "dotenvjs": "^1.0.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "hash-router": "^0.4.0",
     "massive": "^6.1.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
