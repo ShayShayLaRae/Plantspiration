@@ -20,8 +20,8 @@ function App() {
           <Route exact path='/' component={Home} />
           <Route path='/my-plants' component={MyPlants} />
           <Route path='/wishlist' component={Wishlist} />
-          <Route path='/edit-plant' component={EditPlant} />
-          <Route path='/user/edit' component={EditUser} />
+          <Route path='/edit-plant/:id' component={EditPlant} />
+          <Route path='/user/edit/:id' component={EditUser} />
         </Switch>
       </div>
       <Footer />
