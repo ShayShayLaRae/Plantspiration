@@ -20,8 +20,8 @@ app.delete('/api/user/:id', ctrl.deleteUser)
 app.post('/api/plant', ctrl.addPlant)
 app.get('/api/plant-hoard', ctrl.allPlants)
 app.get('/api/plant-hoard/:id', ctrl.aPlant)
-app.put('/api/plant/:id', ctrl.editPlant)
-app.delete('/api/plant/:id', ctrl.deletePlant)
+app.put('/api/edit-plant/:id', ctrl.editPlant)
+app.delete('/api/plant/:plant_id', ctrl.deletePlant)
 
 massive(CONNECTION_STRING).then(databaseConnection => {
     app.set('db', databaseConnection)

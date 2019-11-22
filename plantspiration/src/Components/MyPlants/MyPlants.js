@@ -16,13 +16,18 @@ export default class MyPlants extends Component{
             this.setState({myPlantsList: results.data});
         });
     }
-  
+    componentDidMount() {
+        this.allPlants()
+    }
 
     render() {
         return(
+
             <div>
                 MyPlants
-                <PlantDisplay/>
+                {this.state.myPlantsList.map(p => 
+                <PlantDisplay key={p.plant_id} plant={p} getAllPlants={this.allPlants}/>
+                )}
             </div>
         )
     }
