@@ -24,7 +24,10 @@ export default class MyPlants extends Component{
         return(
 
             <div>
-                MyPlants
+                <button>
+                    Add New Plant
+                </button>
+    
                 {this.state.myPlantsList.map(p => 
                 <PlantDisplay key={p.plant_id} plant={p} getAllPlants={this.allPlants}/>
                 )}

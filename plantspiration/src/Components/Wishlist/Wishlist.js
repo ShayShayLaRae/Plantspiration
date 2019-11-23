@@ -27,7 +27,7 @@ export default class Wishlist extends Component{
                 Wishlist
                 {/* {this.state.wishlistPlants.map(p => <PlantDisplay key={p.plant_id} getWishlist={this.getWishes} />
                 )}
-                <Link to='edit-plant/:plant_id'>
+                <Link to='/plant/:plant_id'>
                     <button>
                         Add New Wish
                     </button>

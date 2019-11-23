@@ -23,7 +23,7 @@ export default class Step2 extends Component {
     }
 
     onClickEdit() {
-        axios.post('http://localhost:6727/api/edit-plant', {
+        axios.post(`http://localhost:6727/api/plant/:plant_id`, {
             img_url: this.state.img_url,
             common_name: this.state.common_name,
             scientific_name: this.state.scientific_name,
@@ -97,7 +97,7 @@ export default class Step2 extends Component {
                         Complete
                     </button>
                 </Link>
-                <Link to='/edit-plant/step1'>
+                <Link to='/plant/step1'>
                 <button onClick={(event) => {
                         store.dispatch(setStep2(propagation_type, hardiness_zone, soil_type, sun, acquired))
                         setTimeout(() => { console.log('store: ', store.getState()) }, 500);

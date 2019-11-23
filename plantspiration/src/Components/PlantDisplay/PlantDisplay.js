@@ -18,23 +18,23 @@ export default class PlantDisplay extends Component {
         return (
             <div>
 
-                <Link to='/edit-plant/step1'>
+                <Link to={`/plant/step1/${plant_id}`}>
                     <button>
                         Edit
                     </button>
                 </Link>
-                <img src={img_url} alt='plant' className='plantimg' />
-                <div>{common_name}</div>
-                <div>{scientific_name}</div>
-                <div>{propagation_type}</div>
-                <div>{hardiness_zone}</div>
-                <div>{soil_type}</div>
-                <div>{sun}</div>
-                <div>{acquired}</div>
+                <img src={img_url} alt='plant' className='plant_img' />
+                <div><strong>Common Name:</strong> {common_name}</div>
+                <div><strong>Scientific Name:</strong> {scientific_name}</div>
+                <div><strong>Propagation Type:</strong> {propagation_type}</div>
+                <div><strong>Hardiness Zones:</strong> {hardiness_zone}</div>
+                <div><strong>Soil:</strong> {soil_type}</div>
+                <div><strong>Sun:</strong> {sun}</div>
+                <div><strong>Acquired:</strong> {acquired}</div>
                 <button onClick={() => this.onClick(plant_id)}>
                     X
                 </button>
-                PlantDisplay
+            
             </div>
         )
     }

@@ -13,14 +13,14 @@ app.use(cors());
 app.post('/api/user', ctrl.addUser)
 app.get('/api/user-list', ctrl.allUsers)
 app.get('/api/user-list/:id', ctrl.aUser)
-app.put('/api/user/:id', ctrl.editUser)
-app.delete('/api/user/:id', ctrl.deleteUser)
+app.put('/api/user/:user_id', ctrl.editUser)
+app.delete('/api/user/:user_id', ctrl.deleteUser)
 
 //Plant Endpoints
 app.post('/api/plant', ctrl.addPlant)
 app.get('/api/plant-hoard', ctrl.allPlants)
 app.get('/api/plant-hoard/:id', ctrl.aPlant)
-app.put('/api/edit-plant/:id', ctrl.editPlant)
+app.put('/api/plant/:id', ctrl.editPlant)
 app.delete('/api/plant/:plant_id', ctrl.deletePlant)
 
 massive(CONNECTION_STRING).then(databaseConnection => {

@@ -50,7 +50,7 @@ export default class Step1 extends Component {
                 type='text'
                 onChange={e => this.scientific_nameChangeHandler(e)}
                 />
-                <Link to='/edit-plant/step2'>
+                <Link to='/plant/step2'>
                 <button onClick={(event) => {
                         store.dispatch(setStep1(img_url, common_name, scientific_name))
                         // setTimeout(() => { console.log('store: ', store.getState()) }, 500);
