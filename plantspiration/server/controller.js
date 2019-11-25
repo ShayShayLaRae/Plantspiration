@@ -53,10 +53,10 @@ module.exports = {
     addPlant(req, res) {
         const db = req.app.get('db')
         const {
-            img_url, common_name, scientific_name, propagation_type, soil_type, sun, acquired, current_list
+            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
         } = req.body
         db.add_plant({
-            img_url, common_name, scientific_name, propagation_type, soil_type, sun, acquired, current_list
+            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
         })
         .then(result => {
             res.status(200).send(result)
@@ -98,12 +98,12 @@ module.exports = {
     },
     editPlant (req, res) {
         const {
-            img_url, common_name, scientific_name, propagation_type, soil_type, sun, acquired, current_list
+            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
         } = req.body
         const db = req.app.get('db');
         const {plant_id} = req.params;
         db.edit_plant({
-            plant_id, img_url, common_name, scientific_name, propagation_type, soil_type, sun, acquired, current_list})
+            plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list})
             .then(plant => {
                 res.status(200).send(plant)
             }).catch(err => {

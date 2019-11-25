@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 // import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header/Header';
@@ -12,49 +12,24 @@ import { Switch, Route } from 'react-router-dom';
 
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      selectedPlant: {}
-    }
-  }
-  updateSelectedPlant = (plantObj) => {
-    this.setState({ selectedPlant: plantObj }, () => {
-    });
-  }
+  render(){
 
-  render() {
-
-    return (
+  
+  return (
+    <div>
+      <Header />
       <div>
-        <Header />
-        <div>
-          <Switch>
-
-            <Route exact path='/' component={Home} />
-
-            <Route path='/my-plants' component={() => (
-              <MyPlants updateSelectedPlant={this.updateSelectedPlant} />
-            )} />
-
-            <Route path='/wishlist' component={Wishlist} />
-
-            <Route path='/plant/add' component={() => (
-              <PlantForm selectedPlant={this.state.selectedPlant}
-                updateSelectedPlant={this.updateSelectedPlant} />
-            )} />
-
-            <Route path='/plant/:plant_id' component={() => (
-              <PlantForm selectedPlant={this.state.selectedPlant}
-                updateSelectedPlant={this.updateSelectedPlant} />
-            )} />
-
-            <Route path='/user/:id' component={UserForm} />
-
-          </Switch>
-        </div>
-        <Footer />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/my-plants' component={MyPlants} />
+          <Route path='/wishlist' component={Wishlist} />
+          <Route path='/plant/' component={PlantForm} />
+          <Route path='/user/:id' component={UserForm} />
+        </Switch>
       </div>
-    );
+      <Footer />
+    </div>
+  );
   }
 }
+

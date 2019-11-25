@@ -9,21 +9,22 @@ import axios from 'axios';
 export default class Step2 extends Component {
     constructor(){
         super();
-        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired} = store.getState()
+        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = store.getState()
         this.state = {
             propagation_type: propagation_type,
             hardiness_zone: hardiness_zone,
             soil_type: soil_type,
             sun: sun,
             acquired: acquired,
+            current_list: current_list,
             img_url: img_url,
             common_name: common_name,
             scientific_name: scientific_name
         }
     }
 
-    onClickEdit() {
-        axios.post(`http://localhost:6727/api/plant/:plant_id`, {
+    onClickAdd() {
+        axios.post(`http://localhost:6727/api/plant`, {
             img_url: this.state.img_url,
             common_name: this.state.common_name,
             scientific_name: this.state.scientific_name,
@@ -31,7 +32,8 @@ export default class Step2 extends Component {
             hardiness_zone: this.state.hardiness_zone,
             soil_type: this.state.soil_type,
             sun: this.state.sun,
-            acquired: this.state.acquired
+            acquired: this.state.acquired,
+            current_list: this.state.current_list
         })
             .then(() => {
                 store.getState()
@@ -52,12 +54,15 @@ export default class Step2 extends Component {
         this.setState({ sun: event.target.value })
     }
     acquiredChangeHandler(event) {
-        this.setState({ acquired: event.target.value})
+        this.setState({ acquired: event.target.value })
+    }
+    current_listChangeHandler(event) {
+        this.setState({ current_list: event.target.value })
     }
 
 
     render(){
-        const {propagation_type, hardiness_zone, soil_type, sun, acquired} = this.state;
+        const {propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = this.state;
         return(
             <div>
                 
@@ -91,15 +96,21 @@ export default class Step2 extends Component {
                 type='text'
                 onChange={e => this.acquiredChangeHandler(e)}
                 />
+                <input
+                value={current_list}
+                placeholder='MyPlants, Wishlist, or Propagation?'
+                type='text'
+                onChange={e => this.current_listChangeHandler(e)}
+                />
                   <Link to='/my-plants'>
                     <button onClick={() =>
-                        this.onClickEdit()}>
+                        this.onClickAdd()}>
                         Complete
                     </button>
                 </Link>
                 <Link to='/plant/step1'>
                 <button onClick={(event) => {
-                        store.dispatch(setStep2(propagation_type, hardiness_zone, soil_type, sun, acquired))
+                        store.dispatch(setStep2(propagation_type, hardiness_zone, soil_type, sun, acquired, current_list))
                         setTimeout(() => { console.log('store: ', store.getState()) }, 500);
                     }}>
                     Previous
@@ -110,7 +121,7 @@ export default class Step2 extends Component {
     }
 }
 function mapStateToProps(reduxState) {
-    const { img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired} = reduxState
-    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, propagation_type: propagation_type, hardiness_zone: hardiness_zone, soil_type: soil_type, sun: sun, acquired: acquired}
+    const { img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = reduxState
+    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, propagation_type: propagation_type, hardiness_zone: hardiness_zone, soil_type: soil_type, sun: sun, acquired: acquired, current_list: current_list}
 }
-connect(mapStateToProps, { setStep2})(Step2)
+connect(mapStateToProps, {setStep2})(Step2)

@@ -11,10 +11,6 @@ SET img = ${img}
 WHERE user_id = ${user_id};
 
 UPDATE users
-SET img = ${img}
-WHERE user_id = ${user_id};
-
-UPDATE users
 SET email = ${email}
 WHERE user_id = ${user_id};
 

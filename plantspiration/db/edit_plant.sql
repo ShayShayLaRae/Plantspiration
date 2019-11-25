@@ -3,7 +3,7 @@ SET common_name = ${common_name}
 WHERE plant_id = ${plant_id};
 
 UPDATE plants
-SET scientific_name = ${common_name}
+SET scientific_name = ${scientific_name}
 WHERE plant_id = ${plant_id};
 
 UPDATE plants

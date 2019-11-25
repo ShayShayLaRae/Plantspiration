@@ -1,6 +1,30 @@
+
 .plant_img{
-    /* height: 65%; */
-    height: 40%;
-    /* width: 40%; */
-    width: 30%;
+    height: 100%;
+    /* height: 40%; */
+    width: 40%;
+    /* width: 30%; */
+    border-radius: 10px;
+}
+.plantStats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+.plantCont{
+    margin: 0;
+    background: rgb(237, 233, 162);
+    margin: 20px;
+    display: flex;
+    /* align-items: center; */
+    height: 40vh;
+    width: 60vw;
+    border-radius: 10px;
+}
+.displayBtns{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './MyPlants.css';
 import axios from 'axios';
 import PlantDisplay from '../PlantDisplay/PlantDisplay';
+import {Link} from 'react-router-dom';
 
 
 export default class MyPlants extends Component{
@@ -21,12 +22,15 @@ export default class MyPlants extends Component{
     }
 
     render() {
+        
         return(
 
             <div>
-                <button>
-                    Add New Plant
-                </button>
+                 <Link to={`/plant/step1`}>
+                    <button>
+                        Add New Plant
+                    </button>
+                </Link>
     
                 {this.state.myPlantsList.map(p => 
                 <PlantDisplay key={p.plant_id} plant={p} getAllPlants={this.allPlants}/>
