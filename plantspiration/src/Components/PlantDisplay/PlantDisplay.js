@@ -47,3 +47,4 @@ export default class PlantDisplay extends Component {
         )
     }
 }
+//location/pathname
