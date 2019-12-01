@@ -40,6 +40,11 @@ export default class Step2 extends Component {
             })
         alert('Plant added!');
     }
+    onClickEdit(plant_id) {
+        axios.put(`http://localhost:6727/api/plant/${plant_id}`, {
+            
+        })
+    }
 
     propagation_typeChangeHandler(event) {
         this.setState({ propagation_type: event.target.value })

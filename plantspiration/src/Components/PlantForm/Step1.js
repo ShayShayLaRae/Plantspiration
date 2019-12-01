@@ -29,7 +29,7 @@ export default class Step1 extends Component {
 
     render(){
         const {img_url, common_name, scientific_name} = this.state;
-        console.log('BLARG',img_url);
+        // console.log('BLARG',img_url);
         
         return(
             <div>

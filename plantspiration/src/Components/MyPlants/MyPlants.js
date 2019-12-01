@@ -11,14 +11,14 @@ export default class MyPlants extends Component{
         this.state= {myPlantsList: []}
     }
 
-    allPlants=() => {
-        axios.get('http://localhost:6727/api/plant-hoard')
+    MyPlants=() => {
+        axios.get('http://localhost:6727/api/plants/myplants')
         .then(results => {
             this.setState({myPlantsList: results.data});
         });
     }
     componentDidMount() {
-        this.allPlants()
+        this.MyPlants()
     }
 
     render() {
@@ -26,6 +26,7 @@ export default class MyPlants extends Component{
         return(
 
             <div>
+
                  <Link to={`/plant/step1`}>
                     <button>
                         Add New Plant
@@ -33,8 +34,9 @@ export default class MyPlants extends Component{
                 </Link>
     
                 {this.state.myPlantsList.map(p => 
-                <PlantDisplay key={p.plant_id} plant={p} getAllPlants={this.allPlants}/>
+                <PlantDisplay key={p.plant_id} plant={p} getMyPlants={this.MyPlants}/>
                 )}
+                
             </div>
         )
     }

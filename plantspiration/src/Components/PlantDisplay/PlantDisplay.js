@@ -6,14 +6,38 @@ import axios from 'axios';
 
 export default class PlantDisplay extends Component {
 
+    getAllPlants=() => {
+        axios.get('http://localhost:6727/api/plants')
+        .then(results => {
+            this.setState({getAllPlants: results.data})
+        })
+    }
+
     onClickDelete(plant_id) {
         axios.delete(`http://localhost:6727/api/plant/${plant_id}`)
             .then(() => {
-                this.props.getAllPlants()
+                this.getAllPlants()
             })
     }
+
+    editPlant(plant_id) {
+        console.log(this.state, plant_id)
+        axios
+            .put(`http://localhost:6727/api/plant/${plant_id}`, {
+                image_url: this.state.image_url,
+                common_name: this.state.common_name,
+                scientific_name: this.state.scientific_name,
+                propagation_type: this.state.propagation_type,
+                hardiness_zone: this.state.hardiness_zone,
+                soil_type: this.state.soil_type,
+                sun: this.state.sun,
+                acquired: this.state.acquired,
+                current_list: this.state.acquired
+            });
+        // this.clearInputs();
+    }
     render() {
-        const { plant, getAllPlants } = this.props;
+        const { plant, getAllPlants, getWishes } = this.props;
         const { plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list } = plant;
         return (
             <div className='plantCont'>

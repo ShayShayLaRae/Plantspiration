@@ -18,25 +18,27 @@ export default class Header extends Component {
                     <Link to='/my-plants'>
                         <button>
                             My Plants
-                    </button>
+                        </button>
                     </Link>
                     <Link to='/wishlist'>
                         <button>
                             Wishlist
-                    </button>
+                        </button>
                     </Link>
 
                     <button>
                         *
-                </button>
-
-                    <button>
+                    </button>
+                    <Link to='/user'>
+                        <button>
                         Login
-                </button>
-
-                    <button>
+                        </button>
+                    </Link>
+                    <Link to='/'>
+                        <button>
                         Logout
-                </button>
+                        </button>
+                    </Link>
                 </nav>
             </div>
         )

@@ -1,4 +1,4 @@
-    const initialState = {
+     const initialState = {
     img_url: '',
     common_name: '',
     scientific_name: '',

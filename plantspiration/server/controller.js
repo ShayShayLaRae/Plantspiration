@@ -20,6 +20,25 @@ module.exports = {
         })
     },
 
+    getMyPlants(req,res) {
+        const db = req.app.get('db')
+        db.get_MyPlants()
+        .then(result => {
+            res.status(200).send(result)
+        }).catch(err => {
+            console.log(err);
+        })
+    },
+    getWishlist(req,res) {
+        const db = req.app.get('db')
+        db.get_Wishlist()
+        .then(result => {
+            res.status(200).send(result)
+        }).catch(err => {
+            console.log(err);
+        })
+    },
+
     aUser(req, res) {
         const db = req.app.get('db')
         db.get_user()
