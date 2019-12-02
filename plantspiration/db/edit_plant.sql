@@ -1,4 +1,8 @@
 UPDATE plants
+SET img_url = ${img_url}
+WHERE plant_id = ${plant_id};
+
+UPDATE plants
 SET common_name = ${common_name}
 WHERE plant_id = ${plant_id};
 

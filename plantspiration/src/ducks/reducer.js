@@ -7,14 +7,33 @@
     soil_type: '',
     sun: '',
     acquired: '',
-    current_list: ''
+    current_list: '',
+    selected_plant: {}
 }
 
 const SET_STEP1 = 'SET_STEP1';
 const SET_STEP2 = 'SET_STEP2';
 const CANCEL = 'CANCEL';
+const SELECT_PLANT= 'SELECT_PLANT';
 
 //Action Builder
+export const selectPlant = (plant) => {
+    return{
+        type: SELECT_PLANT,
+        payload: {
+            img_url: plant.img_url,
+            common_name: plant.common_name,
+            scientific_name: plant.scientific_name,
+            propagation_type: plant.propagation_type,
+            hardiness_zone: plant.hardiness_zone,
+            soil_type: plant.soil_type,
+            sun: plant.sun,
+            acquired: plant.acquired,
+            current_list: plant.current_list,
+            selected_plant: plant
+        }
+    }
+}
 export const setStep1 = (
     img_url, common_name, scientific_name) => {
     return {
@@ -38,7 +57,6 @@ export const setStep2 = (propagation_type, hardiness_zone, soil_type, sun, acqui
         }
     }
 export const cancel = (initialState) => {
-    console.log('hit reducer');
     
     return {
         type: CANCEL,
@@ -52,20 +70,12 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 ...action.payload
-                // img_url: img_url,
-                // common_name: common_name,
-                // scientific_name: scientific_name
+                
             }
         case SET_STEP2:
             return {
-                ...state, //original values
-                ...action.payload //overwritten values
-
-                // propagation_type: action.payload,
-                // hardiness_zone: action.payload,
-                // soil_type: action.payload,
-                // sun: action.payload,
-                // acquired: action.payload
+                ...state, 
+                ...action.payload 
             }
 
         case CANCEL:
@@ -80,6 +90,12 @@ export default function reducer(state = initialState, action) {
                 acquired: '',
                 current_list: ''
             }
+        case SELECT_PLANT:
+            return {
+                ...state, 
+                ...action.payload
+            }
+
         default: return state
     }
 }

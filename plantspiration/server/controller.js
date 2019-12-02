@@ -119,8 +119,15 @@ module.exports = {
         const {
             img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
         } = req.body
+
+        console.log('*************** penis', req.body)
+
         const db = req.app.get('db');
         const {plant_id} = req.params;
+        console.log('******plant_id', plant_id);
+        console.log('*****dicks', req.params);
+        
+        
         db.edit_plant({
             plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list})
             .then(plant => {

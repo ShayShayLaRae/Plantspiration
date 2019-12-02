@@ -9,7 +9,8 @@ import axios from 'axios';
 export default class Step2 extends Component {
     constructor(){
         super();
-        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = store.getState()
+        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, selected_plant} = store.getState()
+        
         this.state = {
             propagation_type: propagation_type,
             hardiness_zone: hardiness_zone,
@@ -19,11 +20,13 @@ export default class Step2 extends Component {
             current_list: current_list,
             img_url: img_url,
             common_name: common_name,
-            scientific_name: scientific_name
+            scientific_name: scientific_name,
+            selected_plant: selected_plant,
+            isEditing: Object.keys(selected_plant).length > 0
         }
     }
 
-    onClickAdd() {
+    addPlant() {
         axios.post(`http://localhost:6727/api/plant`, {
             img_url: this.state.img_url,
             common_name: this.state.common_name,
@@ -40,11 +43,35 @@ export default class Step2 extends Component {
             })
         alert('Plant added!');
     }
-    onClickEdit(plant_id) {
-        axios.put(`http://localhost:6727/api/plant/${plant_id}`, {
-            
-        })
+
+    clickCompleteHandler() {
+        const {isEditing, selected_plant} = this.state;
+        if (isEditing) {
+            this.editPlant(selected_plant.plant_id)
+          } else {
+            this.addPlant()
+          }
     }
+
+    editPlant(plant_id) {
+        console.log(this.state, plant_id)
+        axios
+            .put(`http://localhost:6727/api/plant/${plant_id}`, {
+                img_url: this.state.img_url,
+                common_name: this.state.common_name,
+                scientific_name: this.state.scientific_name,
+                propagation_type: this.state.propagation_type,
+                hardiness_zone: this.state.hardiness_zone,
+                soil_type: this.state.soil_type,
+                sun: this.state.sun,
+                acquired: this.state.acquired,
+                current_list: this.state.current_list
+            })
+            .then(() => {
+                store.getState()
+            })
+            alert('Plant is Updated');
+        }
 
     propagation_typeChangeHandler(event) {
         this.setState({ propagation_type: event.target.value })
@@ -108,8 +135,7 @@ export default class Step2 extends Component {
                 onChange={e => this.current_listChangeHandler(e)}
                 />
                   <Link to='/my-plants'>
-                    <button onClick={() =>
-                        this.onClickAdd()}>
+                    <button onClick={() => this.clickCompleteHandler()}>
                         Complete
                     </button>
                 </Link>
@@ -126,7 +152,7 @@ export default class Step2 extends Component {
     }
 }
 function mapStateToProps(reduxState) {
-    const { img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = reduxState
-    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, propagation_type: propagation_type, hardiness_zone: hardiness_zone, soil_type: soil_type, sun: sun, acquired: acquired, current_list: current_list}
+    const { img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, selected_plant} = reduxState
+    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, propagation_type: propagation_type, hardiness_zone: hardiness_zone, soil_type: soil_type, sun: sun, acquired: acquired, current_list: current_list, selected_plant: selected_plant}
 }
 connect(mapStateToProps, {setStep2})(Step2)

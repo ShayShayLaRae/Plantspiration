@@ -3,16 +3,28 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setStep1 } from '../../ducks/reducer';
 import store from '../../ducks/store';
+// import { FilePond } from 'react-filepond';
+// import 'filepond/dist/filepond.min.css';
 
 
 export default class Step1 extends Component {
     constructor(){
         super();
-        const {img_url, common_name, scientific_name} = store.getState();
+        let {img_url, common_name, scientific_name, selected_plant} = store.getState();
+
+        // console.log('selectedPlant', selected_plant);
+
+        // if(Object.keys(selected_plant).length > 0) {
+        //     img_url = selected_plant.img_url;
+        //     common_name = selected_plant.common_name;
+        //     scientific_name = selected_plant.scientific_name;
+        // }
+        
         this.state = {
             img_url: img_url,
             common_name: common_name,
-            scientific_name: scientific_name
+            scientific_name: scientific_name,
+            selected_plant: selected_plant
         }
     }
 
@@ -29,7 +41,6 @@ export default class Step1 extends Component {
 
     render(){
         const {img_url, common_name, scientific_name} = this.state;
-        // console.log('BLARG',img_url);
         
         return(
             <div>
@@ -40,6 +51,7 @@ export default class Step1 extends Component {
                 type='text'
                 onChange={e => this.img_urlChangeHandler(e)}
                 />
+                {/* <FilePond/> */}
                 <input
                 value={common_name}
                 placeholder='common name'
@@ -55,7 +67,6 @@ export default class Step1 extends Component {
                 <Link to='/plant/step2'>
                 <button onClick={(event) => {
                         store.dispatch(setStep1(img_url, common_name, scientific_name))
-                        // setTimeout(() => { console.log('store: ', store.getState()) }, 500);
                     }}>
                     Next
                 </button>
@@ -66,8 +77,8 @@ export default class Step1 extends Component {
     }
 }
 function mapStateToProps(reduxState) {
-    const { img_url, common_name, scientific_name } = reduxState
-    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name }
+    const { img_url, common_name, scientific_name, selected_plant } = reduxState
+    return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, selected_plant: selected_plant }
 }
 
 connect(mapStateToProps, { setStep1 })(Step1)

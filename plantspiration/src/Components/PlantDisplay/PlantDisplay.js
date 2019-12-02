@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './PlantDisplay.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {selectPlant} from '../../ducks/reducer';
+import store from '../../ducks/store';
 
 
 export default class PlantDisplay extends Component {
@@ -20,22 +22,10 @@ export default class PlantDisplay extends Component {
             })
     }
 
-    editPlant(plant_id) {
-        console.log(this.state, plant_id)
-        axios
-            .put(`http://localhost:6727/api/plant/${plant_id}`, {
-                image_url: this.state.image_url,
-                common_name: this.state.common_name,
-                scientific_name: this.state.scientific_name,
-                propagation_type: this.state.propagation_type,
-                hardiness_zone: this.state.hardiness_zone,
-                soil_type: this.state.soil_type,
-                sun: this.state.sun,
-                acquired: this.state.acquired,
-                current_list: this.state.acquired
-            });
-        // this.clearInputs();
+    savePlantRedux(plant) {
+        store.dispatch(selectPlant(plant))
     }
+
     render() {
         const { plant, getAllPlants, getWishes } = this.props;
         const { plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list } = plant;
@@ -58,11 +48,11 @@ export default class PlantDisplay extends Component {
                     <button onClick={() => this.onClickDelete(plant_id)} className='Xbtn'>
                         X
                 </button>
-
+    
                     <Link to={`/plant/step1/${plant_id}`}>
-                        <button>
+                        <button onClick={() => {this.savePlantRedux(plant)}}>
                             Edit
-                    </button>
+                        </button>
                     </Link>
                 </div>
 
@@ -71,4 +61,4 @@ export default class PlantDisplay extends Component {
         )
     }
 }
-//location/pathname
+
