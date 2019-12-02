@@ -29,7 +29,8 @@ export default class Home extends Component{
         const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun} = plantOfTheDay
    
         return(
-            <div className='plantHome'>
+            <div className='home'>
+                <div className='addMe'>
                 <h2>Add me to Your Wishlist?</h2>
                 <div className='plantStats'>
                <img src={img_url} alt='plant' className='plant_img'/>
@@ -45,6 +46,7 @@ export default class Home extends Component{
                <div><strong>Soil:</strong>{soil_type}</div>
 
                <div><strong>Sun:</strong>{sun}</div>
+               </div>
                </div>
             </div>
         )
