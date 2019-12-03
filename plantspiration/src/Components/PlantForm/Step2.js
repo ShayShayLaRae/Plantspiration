@@ -27,7 +27,7 @@ export default class Step2 extends Component {
     }
 
     addPlant() {
-        axios.post(`http://localhost:6727/api/plant`, {
+        axios.post(`/api/plant`, {
             img_url: this.state.img_url,
             common_name: this.state.common_name,
             scientific_name: this.state.scientific_name,
@@ -56,7 +56,7 @@ export default class Step2 extends Component {
     editPlant(plant_id) {
         console.log(this.state, plant_id)
         axios
-            .put(`http://localhost:6727/api/plant/${plant_id}`, {
+            .put(`/api/plant/${plant_id}`, {
                 img_url: this.state.img_url,
                 common_name: this.state.common_name,
                 scientific_name: this.state.scientific_name,

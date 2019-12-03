@@ -14,7 +14,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:6727/api/plants')
+        axios.get('/api/plants')
             .then(res => {
                 let randomIndex = this.getRandomNum(res.data.length);
                 let randomPlant = res.data[randomIndex];
@@ -26,7 +26,7 @@ export default class Home extends Component {
     }
 
     // getUrbanJungle=() => {
-    // axios.get('http://localhost:6727/api/urbanJungle')
+    // axios.get('/api/urbanJungle')
     // .then(res => {
     //     this.setState({getUrbanJungle: res.data})
     //     })
@@ -46,7 +46,7 @@ export default class Home extends Component {
     // fileUploadHandler = () => {
     //     const db = new FormData();
     //     db.append('image', this.state.selectedFile, this.state.selectedFile.name)
-    //     axios.post('http://localhost:6727/api/urbanJungle', db, {
+    //     axios.post('/api/urbanJungle', db, {
     //         onUploadProgress: progressEvent => {
     //             console.log('Upload Progress:' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
                 
@@ -65,10 +65,10 @@ export default class Home extends Component {
 
         return (
             <div className='body'>
-                <div className='addMe'>
+                <div className='randomPlant'>
                     {/* <h2>Wishlist</h2> */}
-                    <div className='homePlant'>
-                        <img src={img_url} alt='plant' className='plant_img' />
+                    <div className='homePlantImg'>
+                        <img src={img_url} alt='plant' className='home_plant_img' />
                     </div>
 
                     <div className='plantStats'>

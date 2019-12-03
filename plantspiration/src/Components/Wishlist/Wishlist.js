@@ -13,7 +13,7 @@ export default class Wishlist extends Component{
     }
 
     getWishes=() => {
-        axios.get('http://localhost:6727/api/plants/wishlist')
+        axios.get('/api/plants/wishlist')
         .then(results => {
             this.setState({wishlistPlants: results.data});
         });
@@ -30,9 +30,11 @@ export default class Wishlist extends Component{
                     <button className='addBtn'>
                         Add New Wish
                     </button>
+                
                 </Link>
+                <div className='wishlistCont'>
                 {this.state.wishlistPlants.map(p => <PlantDisplay key={p.plant_id} plant={p} getWishlist={this.getWishes} />
-                )}
+                )} </div>
                
                 
             </div>

@@ -1,29 +1,22 @@
-
-.plant_img{
-    height: 100%;
-    /* height: 40%; */
-    width: 40%;
-    /* width: 30%; */
-    border-radius: 10px;
-}
 .plantStats{
     display: flex;
+    align-items: baseline;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-left: 10px;
-    color: white;
+    color: rgb(50, 48, 48);
 }
 .plantCont{
-    margin: 0;
-    background: rgba(164, 181, 130, 0.899);
+    background: #c6c6c6;
     margin: 20px;
     display: flex;
     /* align-items: center; */
-    height: 40vh;
-    width: 60vw;
+    height: 35vh;
+    width: 500px;
     border-radius: 10px;
     /* flex-wrap: wrap; */
-    /* border: solid, black; */
+    border: 10px solid white;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.6);
 }
 .displayBtns{
     display: flex;
@@ -36,4 +29,15 @@
     background: black;
     color: white;
     border: black;
+}
+.plant_imgCont{
+    width: 300px;
+}
+
+.plant_img{
+    /* height: 100%; */
+    width: inherit;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100%;
 }

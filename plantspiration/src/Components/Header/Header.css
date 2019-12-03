@@ -4,11 +4,11 @@
     align-items: center;
     height: 10vh;
     width: 100vw;
-    background: rgba(164, 181, 130, 0.899);
+    background: rgb(164, 181, 130);
 }
 
 .logo{
-    color: white;
+    color: rgb(43, 35, 35);
 }
 
 /* nav{
