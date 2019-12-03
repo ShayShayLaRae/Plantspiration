@@ -1,0 +1,10 @@
+.footer{
+    height: 10vh;
+    width: 100vw;
+    background: rgba(164, 181, 130, 0.899);
+    position: absolute;
+    /* bottom: 0; */
+    width: 100%;
+    margin-bottom: 0%;
+       
+}

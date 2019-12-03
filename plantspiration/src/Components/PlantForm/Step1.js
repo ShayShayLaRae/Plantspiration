@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setStep1 } from '../../ducks/reducer';
 import store from '../../ducks/store';
-// import { FilePond } from 'react-filepond';
-// import 'filepond/dist/filepond.min.css';
 
 
 export default class Step1 extends Component {
@@ -43,7 +41,7 @@ export default class Step1 extends Component {
         const {img_url, common_name, scientific_name} = this.state;
         
         return(
-            <div>
+            <div className='step1body'>
 
                 <input
                 value={img_url}
@@ -51,7 +49,6 @@ export default class Step1 extends Component {
                 type='text'
                 onChange={e => this.img_urlChangeHandler(e)}
                 />
-                {/* <FilePond/> */}
                 <input
                 value={common_name}
                 placeholder='common name'

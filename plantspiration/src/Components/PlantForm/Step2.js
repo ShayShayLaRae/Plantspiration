@@ -96,7 +96,7 @@ export default class Step2 extends Component {
     render(){
         const {propagation_type, hardiness_zone, soil_type, sun, acquired, current_list} = this.state;
         return(
-            <div>
+            <div className='step2body'>
                 
                 <input
                 value={propagation_type}

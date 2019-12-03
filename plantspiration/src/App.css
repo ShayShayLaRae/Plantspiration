@@ -22,5 +22,17 @@
 }
 
 body{
-  background: #B6C197;
+  /* background: #B6C197; */
+  height: 100%;
+  position: relative;
+  background-image: url('https://www.elsetge.cat/myimg/f/4-42909_koziel-moss-white-brick-wallpaper-old-bricks.jpg');
+  background-repeat: repeat-y;
+  background-size: 100%;
+}
+
+button{
+  /* background: black;
+  color: white; */
+  border-radius: 10px;
+  /* border: black; */
 }

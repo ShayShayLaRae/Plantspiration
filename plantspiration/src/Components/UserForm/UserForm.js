@@ -28,7 +28,7 @@ export default class UserForm extends Component{
     render() {
         const {username, password, img, email} = this.state;
         return(
-            <div>
+            <div className='userFormBody'>
                 <h3>Register</h3>
                 <input
                 value={username}

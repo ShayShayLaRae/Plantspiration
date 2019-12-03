@@ -11,20 +11,29 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 10px;
+    color: white;
 }
 .plantCont{
     margin: 0;
-    background: rgb(237, 233, 162);
+    background: rgba(164, 181, 130, 0.899);
     margin: 20px;
     display: flex;
     /* align-items: center; */
     height: 40vh;
     width: 60vw;
     border-radius: 10px;
+    /* flex-wrap: wrap; */
+    /* border: solid, black; */
 }
 .displayBtns{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+.Xbtn{
+    background: black;
+    color: white;
+    border: black;
 }

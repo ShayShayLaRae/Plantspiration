@@ -45,9 +45,11 @@ export default class PlantDisplay extends Component {
                 </div>
 
                 <div className='displayBtns'>
-                    <button onClick={() => this.onClickDelete(plant_id)} className='Xbtn'>
-                        X
-                </button>
+                    <button 
+                    onClick={() => this.onClickDelete(plant_id)} 
+                    className='Xbtn'>
+                         X 
+                    </button>
     
                     <Link to={`/plant/step1/${plant_id}`}>
                         <button onClick={() => {this.savePlantRedux(plant)}}>

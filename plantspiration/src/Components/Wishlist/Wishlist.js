@@ -24,10 +24,10 @@ export default class Wishlist extends Component{
 
     render() {
         return(
-            <div>
+            <div className='WishlistBody'>
                 
                  <Link to='/plant/step1'>
-                    <button>
+                    <button className='addBtn'>
                         Add New Wish
                     </button>
                 </Link>

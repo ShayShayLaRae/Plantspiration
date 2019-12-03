@@ -25,10 +25,10 @@ export default class MyPlants extends Component{
         
         return(
 
-            <div>
+            <div className='myPlantsBody'>
 
                  <Link to={`/plant/step1`}>
-                    <button>
+                    <button className='addBtn'>
                         Add New Plant
                     </button>
                 </Link>
