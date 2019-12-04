@@ -16,10 +16,14 @@ export default class PlantDisplay extends Component {
     }
 
     onClickDelete(plant_id) {
-        axios.delete(`/api/plant/${plant_id}`)
+        let shouldDelete = window.confirm('Are you sure?');
+        if (shouldDelete) {
+            axios.delete(`/api/plant/${plant_id}`)
             .then(() => {
                 this.getAllPlants()
             })
+            alert('Plant Up-rooted')
+        }    
     }
 
     savePlantRedux(plant) {
@@ -36,48 +40,48 @@ export default class PlantDisplay extends Component {
                 </div>
                 <div className='plantStats'>
                     <div>
-                        <strong>Common Name:</strong> 
-                        {common_name}
+                        <strong>{common_name}</strong> 
                     </div>
+                    <hr/>
                     <div>
                         <strong>Scientific Name:</strong> 
-                        {scientific_name}
+                        {`  ${scientific_name}`}
                     </div>
                     <div>
                         <strong>Propagation Type:</strong> 
-                        {propagation_type}
+                        {`  ${propagation_type}`}
                     </div>
                     <div>
                         <strong>Hardiness Zones:</strong> 
-                        {hardiness_zone}
+                        {`  ${hardiness_zone}`}
                     </div>
                     <div>
                         <strong>Soil:</strong> 
-                        {soil_type}
+                        {`  ${soil_type}`}
                     </div>
                     <div>
                         <strong>Sun:</strong> 
-                        {sun}
+                        {`  ${sun}`}
                     </div>
                     <div>
                         <strong>Acquired:</strong> 
-                        {acquired}
+                        {`  ${acquired}`}
                     </div>
-                    <div>
+                    {/* <div>
                         <strong>List:</strong> 
                         {current_list}
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className='displayBtns'>
-                    <button 
-                    onClick={() => this.onClickDelete(plant_id)} 
-                    className='Xbtn'>
+                    <button onClick={() => this.onClickDelete(plant_id)} 
+                    className='cornerBtn'>
                          X 
                     </button>
     
                     <Link to={`/plant/step1/${plant_id}`}>
-                        <button onClick={() => {this.savePlantRedux(plant)}}>
+                        <button onClick={() => {this.savePlantRedux(plant)}}
+                        className='cornerBtn'>
                             Edit
                         </button>
                     </Link>

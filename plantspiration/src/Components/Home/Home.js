@@ -40,7 +40,7 @@ export default class Home extends Component {
     //     this.setState({
     //         selectedFile: event.target.files[0]
     //     })
-        
+
     // }
 
     // fileUploadHandler = () => {
@@ -49,7 +49,7 @@ export default class Home extends Component {
     //     axios.post('/api/urbanJungle', db, {
     //         onUploadProgress: progressEvent => {
     //             console.log('Upload Progress:' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
-                
+
     //         }
     //     })
     //     .then(res => {
@@ -60,7 +60,7 @@ export default class Home extends Component {
     render() {
         const { plantOfTheDay } = this.state;
         const { img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun } = plantOfTheDay
-        const {getUrbanJungle} = this.state;
+        const { getUrbanJungle } = this.state;
         // const {room_img} = getUrbanJungle;
 
         return (
@@ -71,38 +71,54 @@ export default class Home extends Component {
                         <img src={img_url} alt='plant' className='home_plant_img' />
                     </div>
 
-                    <div className='plantStats'>
-                        <div><strong>Common Name:</strong>{common_name}</div>
+                    <div className='homePlantStats'>
+                        <div>
+                            <h3>{common_name}</h3>
+                        </div>
+                        <div>
+                            <strong>Scientific Name:</strong>
+                            {`  ${scientific_name}`}
+                        </div>
 
-                        <div><strong>Scientific Name:</strong>{scientific_name}</div>
+                        <div>
+                            <strong>Propagation Type:</strong>
+                            {`  ${propagation_type}`}
+                        </div>
 
-                        <div><strong>Propagation Type:</strong>{propagation_type}</div>
+                        <div>
+                            <strong>Hardiness Zones:</strong>
+                            {`  ${hardiness_zone}`}
+                        </div>
 
-                        <div><strong>Hardiness Zones:</strong>{hardiness_zone}</div>
+                        <div>
+                            <strong>Soil:</strong>
+                            {`  ${soil_type}`}
+                        </div>
 
-                        <div><strong>Soil:</strong>{soil_type}</div>
-
-                        <div><strong>Sun:</strong>{sun}</div>
+                        <div>
+                            <strong>Sun:</strong>
+                            {`  ${sun}`}
+                        </div>
                     </div>
                 </div>
                 <div className='homeRight'>
-                    <div>
+                    <div className='intro'>
                         <h3>Welcome To PlantSpiration!</h3>
                         <p>
-                        This is a place to nurture your plant obsession, or help you get started!</p>
+                            This is a place to nurture your plant obsession, or help you get started!</p>
                         <p>
-                        Once registered you will have the ability to list your current house plants, your propagations, and create a wishlist!</p>
+                            Once registered you will have the ability to list your current house plants, your propagations, and create a wishlist!</p>
                         <p>Chat plants with other urban jungle owners about identification, swapping plants, disease and pest advice, Whatever you like! (plant chat coming soon)</p>
                         <p>
-                        Set up notifications to repot, water, and fertilize your potted beauties and we will send you text notifications on request. </p>
+                            Set up notifications to repot, water, and fertilize your potted beauties and we will send you text notifications on request. </p>
                         <p>
-                        To get started, Register above!
+                            To get started, Register above!
                         </p>
                     </div>
                     <div>
-                    {/* <img src={room_img} alt='plant room' /> */}
-                    {/* <FilePond/> */}
-                    {/* <input 
+                        {/* <img src={room_img} alt='plant room' /> */}
+                        {/* <FilePond/> */}
+                        {/* <input 
                     type='file' 
                     onChange={this.fileSelectedHandler}/>
                     <button 

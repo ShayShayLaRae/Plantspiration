@@ -1,5 +1,9 @@
 .wishlistCont{
     display: flex;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     width: 100vw;
+}
+.wishlistBody{
+    min-height: 100vh;
 }

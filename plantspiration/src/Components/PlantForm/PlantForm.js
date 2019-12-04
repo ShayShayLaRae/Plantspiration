@@ -14,17 +14,18 @@ export default class PlantForm extends Component{
     render() {
         const {cancel} = this.props
         return(
-            <div className='plantFormBody'>
-    
-                  <Link to='/my-plants'>
-                    <button onClick={this.props.cancel}>
-                        Cancel
-                    </button>
-                </Link>
+            <div className='body'>
+                <div className='plantFormCont'>
                 <Switch>
                     <Route path='/plant/step1' component={Step1} />
                     <Route path='/plant/step2' component={Step2} />
                 </Switch>
+                <Link to='/my-plants'>
+                    <button className='btn' onClick={this.props.cancel}>
+                        Cancel
+                    </button>
+                </Link>
+            </div>
             
             </div>
         )

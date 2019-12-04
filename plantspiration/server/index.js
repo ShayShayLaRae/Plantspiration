@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors());
 
 //Auth Controller
-app.post('auth/register', authCtrl.register);
+app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
 app.get('/auth/logout', authCtrl.logout);
 

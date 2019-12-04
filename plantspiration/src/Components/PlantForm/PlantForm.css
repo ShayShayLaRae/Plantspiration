@@ -1,0 +1,19 @@
+.plantFormCont{
+background: rgba(196, 203, 183, 0.762);
+margin: 10%;
+padding: 10%;
+border-radius: 5px;
+border: 10px solid white;
+}
+.step1Cont{
+    display: flex;
+    flex-direction: column;
+}
+.step2Cont{
+    display: flex;
+    flex-direction: column;
+}
+.formBtns{
+    display: flex;
+    justify-content: space-between;
+}

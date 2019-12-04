@@ -14,31 +14,32 @@ export default class Header extends Component {
                 </Link>
 
                 <nav>
-
+                <div className='navBtns'>
                     <Link to='/my-plants'>
-                        <button>
+                        <button className='btn'>
                             My Plants
                         </button>
                     </Link>
                     <Link to='/wishlist'>
-                        <button>
+                        <button className='btn'>
                             Wishlist
                         </button>
                     </Link>
 
-                    <button>
+                    {/* <button className='btn'>
                         *
-                    </button>
+                    </button> */}
                     <Link to='/user'>
-                        <button>
+                        <button className='btn'>
                         Login
                         </button>
                     </Link>
                     <Link to='/'>
-                        <button>
+                        <button className='btn'>
                         Logout
                         </button>
                     </Link>
+                </div>
                 </nav>
             </div>
         )

@@ -24,7 +24,7 @@ export default class Wishlist extends Component{
 
     render() {
         return(
-            <div className='WishlistBody'>
+            <div className='wishlistBody'>
                 
                  <Link to='/plant/step1'>
                     <button className='addBtn'>
