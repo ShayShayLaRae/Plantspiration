@@ -13,8 +13,7 @@ export default (
         <Route path='/my-plants' component={MyPlants}/>
         <Route path='/wishlist' component={WishList}/>
         <Route path='/plant' component={PlantForm}/>
-        {/* <Route path='/plant/:plant_id' component={PlantForm}/> */}
-        <Route path='/user/:user_id' component={UserForm}/>
+        <Route path='/user' component={UserForm}/>
         {/* <Route path='/chat' component={Chat}/> */}
     </Switch>
 

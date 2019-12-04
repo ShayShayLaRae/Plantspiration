@@ -60,14 +60,12 @@
     /* color: rgb(53, 53, 53); */
     border-radius: 5px;
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 700px) {
     .randomPlant{
         width: 300px;
-        /* margin: 1%; */
     }
     .homeRight{
         width: 300px;
-        /* margin: 1%; */
     }
     .homePlantImg{
         max-height: 80%;

@@ -29,7 +29,7 @@ export default class Header extends Component {
                     {/* <button className='btn'>
                         *
                     </button> */}
-                    <Link to='/user'>
+                    <Link to='/user/'>
                         <button className='btn'>
                         Login
                         </button>

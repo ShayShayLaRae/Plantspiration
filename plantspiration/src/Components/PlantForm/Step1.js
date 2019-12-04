@@ -10,14 +10,6 @@ export default class Step1 extends Component {
         super();
         let { img_url, common_name, scientific_name, selected_plant } = store.getState();
 
-        // console.log('selectedPlant', selected_plant);
-
-        // if(Object.keys(selected_plant).length > 0) {
-        //     img_url = selected_plant.img_url;
-        //     common_name = selected_plant.common_name;
-        //     scientific_name = selected_plant.scientific_name;
-        // }
-
         this.state = {
             img_url: img_url,
             common_name: common_name,

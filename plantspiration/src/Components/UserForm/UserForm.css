@@ -1,0 +1,12 @@
+.userFormBody{
+    min-height: 100vh;
+}
+.userFormCont{
+    background: rgba(196, 203, 183, 0.762);
+    margin: 10%;
+    padding: 10%;
+    border-radius: 5px;
+    border: 10px solid white;
+    display: flex;
+    flex-direction: column;
+}

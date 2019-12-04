@@ -8,13 +8,19 @@
     sun: '',
     acquired: '',
     current_list: '',
-    selected_plant: {}
+    selected_plant: {},
+    email: '',
+    username: '',
+    user_id: '',
+    img: ''
 }
 
 const SET_STEP1 = 'SET_STEP1';
 const SET_STEP2 = 'SET_STEP2';
 const CANCEL = 'CANCEL';
 const SELECT_PLANT= 'SELECT_PLANT';
+const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
+
 
 //Action Builder
 export const selectPlant = (plant) => {
@@ -63,6 +69,18 @@ export const cancel = (initialState) => {
         payload: {initialState}
     }
 }
+export const updateUserInfo = (email, username, user_id, img) => {
+    return {
+      type: UPDATE_USER_INFO,
+      payload: {
+          email: email,
+          username: username,
+          user_id: user_id,
+          img: img
+      }
+
+    }
+  }
 
 export default function reducer(state = initialState, action) {
     switch(action.type) {
@@ -95,7 +113,11 @@ export default function reducer(state = initialState, action) {
                 ...state, 
                 ...action.payload
             }
-
+        case UPDATE_USER_INFO:
+            return {
+                ...state, 
+                ...action.payload
+            }
         default: return state
     }
 }

@@ -24,7 +24,7 @@ export default class App extends Component {
           <Route path='/my-plants' component={MyPlants} />
           <Route path='/wishlist' component={Wishlist} />
           <Route path='/plant/' component={PlantForm} />
-          <Route path='/user/:id' component={UserForm} />
+          <Route path='/user/' component={UserForm} />
         </Switch>
       </div>
       <Footer />
