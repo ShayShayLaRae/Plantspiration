@@ -29,6 +29,12 @@ export default class UserForm extends Component{
     passwordChangeHandler(event) {
         this.setState({password: event.target.value})
     }
+    password1ChangeHandler(event) {
+        this.setState({password1: event.target.value})
+    }
+    password2ChangeHandler(event) {
+        this.setState({password2: event.target.value})
+    }
     imgChangeHandler(event) {
         this.setState({img : event.target.value})
     }
@@ -90,6 +96,20 @@ export default class UserForm extends Component{
                 type='text'
                 onChange={e => this.passwordChangeHandler(e)}
                 />
+                {/* <hr/>
+                  <input
+                value={password1}
+                placeholder='password'
+                type='text'
+                onChange={e => this.password1ChangeHandler(e)}
+                />
+                <hr/>
+                  <input
+                value={password2}
+                placeholder='password'
+                type='text'
+                onChange={e => this.password2ChangeHandler(e)}
+                /> */}
                 <hr/>
                   <input
                 value={img}

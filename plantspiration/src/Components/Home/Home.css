@@ -86,3 +86,30 @@
         align-items: center;
     }
 }
+/* @media only screen and (max-width: 1366px) {
+    .randomPlant{
+        width: 400px;
+    }
+    .homeRight{
+        width: 400px;
+    }
+    .homePlantImg{
+        max-height: 80%;
+        width: 400px;
+    }
+    .home_plant_img{
+        max-height: 90%;
+        width: inherit;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+    .homePlantStats{
+        width: 400px;
+        
+    }
+    .body{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+} */

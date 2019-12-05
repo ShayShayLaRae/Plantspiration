@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
+import {updateUserInfo} from '../../ducks/reducer';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 export default class Header extends Component {
+  
     render() {
         return (
             <div className='header'>
