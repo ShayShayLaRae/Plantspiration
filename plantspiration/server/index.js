@@ -10,6 +10,11 @@ const cors = require('cors');
 
 const app = express();
 app.use(express.json()); 
+app.use(session({
+    resave: false,
+    saveUninitialized: false,
+    secret: SESSION_SECRET
+  }))
 app.use(cors());
 
 //Auth Controller
@@ -33,14 +38,8 @@ app.get('/api/urbanJungle', ctrl.getUrbanJungle)
 
 massive(CONNECTION_STRING).then(databaseConnection => {
     app.set('db', databaseConnection)
-    app.use(
-        session({
-            resave: true,
-            saveUninitialized: false,
-            secret: SESSION_SECRET
-        })
-    );
     console.log('Database connected');
 
-    app.listen(SERVER_PORT, () => console.log(`${SERVER_PORT} Plants are growing!`));
+    app.listen(SERVER_PORT, () => 
+    console.log(`${SERVER_PORT} Plants are growing!`));
 })

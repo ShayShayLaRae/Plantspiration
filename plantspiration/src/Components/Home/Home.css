@@ -1,10 +1,7 @@
 .body{
     min-height: 100vh; /* will cover the 100% of viewport */
-    /* overflow: hidden; */
     display: flex;
-    /* position: relative; */
     justify-content: center;
-    /* padding-bottom: 100px; */
 }
 .randomPlant{
     background: rgba(196, 203, 183, 0.762);
@@ -57,15 +54,16 @@
     justify-content: space-between;
     padding: 1%;
     background: #e6e2e2;
-    /* color: rgb(53, 53, 53); */
     border-radius: 5px;
 }
 @media only screen and (max-width: 700px) {
     .randomPlant{
         width: 300px;
+        padding: 5%;
     }
     .homeRight{
         width: 300px;
+        padding: 5%;
     }
     .homePlantImg{
         max-height: 80%;
@@ -86,7 +84,7 @@
         align-items: center;
     }
 }
-/* @media only screen and (max-width: 1366px) {
+/* @media only screen and (min-width: 1000px) {
     .randomPlant{
         width: 400px;
     }
@@ -109,7 +107,7 @@
     }
     .body{
         display: flex;
-        justify-content: space-around;
+        justify-content: column-reverse;
         align-items: center;
     }
 } */

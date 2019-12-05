@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import {connect} from 'react-redux';
-import {updateUserInfo} from '../../ducks/reducer';
-import axios from 'axios';
-import Swal from 'sweetalert2';
+// import {connect} from 'react-redux';
+// import {updateUserInfo} from '../../ducks/reducer';
+// import axios from 'axios';
+// import Swal from 'sweetalert2';
 
 
 export default class Header extends Component {
@@ -34,16 +34,21 @@ export default class Header extends Component {
                     {/* <button className='btn'>
                         *
                     </button> */}
-                    <Link to='/user/'>
+                    <Link to='/login'>
                         <button className='btn'>
                         Login
                         </button>
                     </Link>
-                    <Link to='/'>
+                    <Link to='/register'>
+                        <button className='btn'>
+                            Register
+                        </button>
+                    </Link>
+                    {/* <Link to='/'>
                         <button className='btn'>
                         Logout
                         </button>
-                    </Link>
+                    </Link> */}
                 </div>
                 </nav>
             </div>

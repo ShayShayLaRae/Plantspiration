@@ -1,1 +1,0 @@
-CREATE TABLE plant_room (room_img TEXT);

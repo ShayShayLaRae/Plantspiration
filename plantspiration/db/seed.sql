@@ -1,11 +1,25 @@
--- DROP TABLE IF EXISTS users;
--- CREATE TABLE users (
--- user_id SERIAL PRIMARY KEY,
--- username VARCHAR(30),
--- password VARCHAR(30),
--- img TEXT,
--- email VARCHAR(100)
--- );
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+user_id SERIAL PRIMARY KEY,
+username VARCHAR(30),
+password VARCHAR(30),
+img TEXT,
+email VARCHAR(100)
+);
+DROP TABLE IF EXISTS plants;
+CREATE TABLE plants (
+plant_id SERIAL PRIMARY KEY,
+user_id INT REFERENCES users(user_id),
+img_url TEXT,
+common_name VARCHAR(40),
+scientific_name VARCHAR(40),
+propagation_type VARCHAR(30),
+hardiness_zone VARCHAR(10),
+soil_type VARCHAR(30),
+sun VARCHAR(30),
+acquired VARCHAR(20),
+current_list VARCHAR(30)
+);
 DROP TABLE IF EXISTS user_hash;
 DROP TABLE IF EXISTS posts;
 CREATE TABLE users (
@@ -19,6 +33,9 @@ CREATE TABLE user_hash (
 	hash TEXT,
 	user_id INT REFERENCES users(user_id)
 );
+CREATE TABLE plant_room (
+	room_img TEXT
+	);
 CREATE TABLE posts (
 	post_id SERIAL PRIMARY KEY,
 	title VARCHAR(40),
