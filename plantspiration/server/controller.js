@@ -30,6 +30,15 @@ module.exports = {
             console.log(err);
         })
     },
+    getPropagations(req, res) {
+        const db = req.app.get('db')
+        db.get_Propagations()
+        .then(result => {
+            res.status(200).send(result)
+        }).catch(err => {
+            console.log(err);
+        })
+    },
     getUrbanJungle(req, res) {
         const db = req.app.get('db')
         db.get_plant_room()

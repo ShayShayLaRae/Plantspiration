@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-// import {connect} from 'react-redux';
-// import {updateUserInfo} from '../../ducks/reducer';
-// import axios from 'axios';
-// import Swal from 'sweetalert2';
+import {connect} from 'react-redux';
+import {updateUserInfo} from '../../ducks/reducer';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 
 export default class Header extends Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            username: '',
+            user_id: '',
+            img: '',
+        }
+    }
+    logout = () => {
+        axios.post('/auth/logout').then(res => {
+          Swal.fire(res.data.message)
+          updateUserInfo({
+            email: '',
+            username: '',
+            user_id: '',
+            img: ''
+          })
+        })
+      }
   
     render() {
         return (
@@ -44,14 +64,20 @@ export default class Header extends Component {
                             Register
                         </button>
                     </Link>
-                    {/* <Link to='/'>
-                        <button className='btn'>
+                    <Link to='/'>
+                        <button 
+                        className='btn'
+                        onClick={this.logout}>
                         Logout
                         </button>
-                    </Link> */}
+                    </Link>
                 </div>
                 </nav>
             </div>
         )
     }
 }
+function mapStateToProps(reduxState) {
+   return reduxState
+  }
+  connect(mapStateToProps, {updateUserInfo})(Header)

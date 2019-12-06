@@ -20,7 +20,7 @@ app.use(cors());
 //Auth Controller
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
-app.get('/auth/logout', authCtrl.logout);
+app.post('/auth/logout', authCtrl.logout);
 
 
 //Plant Endpoints
@@ -28,6 +28,7 @@ app.post('/api/plant', ctrl.addPlant)
 app.get('/api/plants', ctrl.allPlants)
 app.get('/api/plants/myplants', ctrl.getMyPlants)
 app.get('/api/plants/wishlist', ctrl.getWishlist)
+app.get('/api/plants/myplants', ctrl.getPropagations)
 app.get('/api/plants/:plant_id', ctrl.aPlant)
 app.put('/api/plant/:plant_id', ctrl.editPlant)
 app.delete('/api/plant/:plant_id', ctrl.deletePlant)

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setStep1 } from '../../ducks/reducer';
+import {setStep1} from '../../ducks/reducer';
 import store from '../../ducks/store';
 
 
@@ -76,4 +76,4 @@ function mapStateToProps(reduxState) {
     return { img_url: img_url, common_name: common_name, scientific_name: scientific_name, selected_plant: selected_plant }
 }
 
-connect(mapStateToProps, { setStep1 })(Step1)
+connect(mapStateToProps, {setStep1})(Step1)

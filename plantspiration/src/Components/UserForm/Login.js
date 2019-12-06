@@ -23,7 +23,7 @@ class Login extends Component {
             .then(res => {
                 this.props.updateUserInfo(res.data.user)
                 Swal.fire(res.data.message)
-                this.props.history.push('/dashboard')
+                this.props.history.push('/my-plants')
             })
             .catch(err => {
                 Swal.fire(err.response.data.message)
@@ -47,7 +47,7 @@ class Login extends Component {
                     type='password'
                     />
                     <hr/>
-                    <Link to='/my-plants'>
+                    <Link to='/'>
                         <button onClick={this.login}>
                             Login
                         </button>

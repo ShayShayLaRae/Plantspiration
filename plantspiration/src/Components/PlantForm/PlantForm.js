@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 export default class PlantForm extends Component{
 
     render() {
-        const {cancel} = this.props
+        const {cancel, reloadList} = this.props
         return(
             <div className='body'>
                 <div className='plantFormCont'>

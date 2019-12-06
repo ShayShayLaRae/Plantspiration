@@ -8,8 +8,7 @@ import Footer from './Components/Footer/Footer';
 
 export default class App extends Component {
   render(){
-
-  
+    
   return (
     <div>
       <Header />

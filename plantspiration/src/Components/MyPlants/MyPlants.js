@@ -8,15 +8,24 @@ import {Link} from 'react-router-dom';
 export default class MyPlants extends Component{
     constructor() {
         super();
-        this.state= {myPlantsList: []}
+        this.state= {
+            myPlantsList: [],
+            // propagations: []
+        }
     }
 
-    getMyPlants=() => {
+    getMyPlants = () => {
         axios.get('/api/plants/myplants')
         .then(results => {
             this.setState({myPlantsList: results.data});
         });
     }
+    // getPropagations = () => {
+    //     axios.get('/api/plants/myplants')
+    //     .then(results => {
+    //         this.setState({propagations: results.data});
+    //     });
+    // }
     componentDidMount() {
         this.getMyPlants()
     }
@@ -29,7 +38,7 @@ export default class MyPlants extends Component{
 
                  <Link to={`/plant/step1`}>
                     <button className='addBtn'>
-                        Add New Plant
+                        Add Plant
                     </button>
                 </Link>
                 <div className='plantListCont'>

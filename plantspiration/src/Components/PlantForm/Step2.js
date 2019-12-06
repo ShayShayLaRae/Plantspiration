@@ -40,7 +40,6 @@ export default class Step2 extends Component {
         })
             .then(() => {
                 store.getState()
-                
             })
       
     }
