@@ -33,7 +33,7 @@ export default class Wishlist extends Component{
                 
                 </Link>
                 <div className='wishlistCont'>
-                {this.state.wishlistPlants.map(p => <PlantDisplay key={p.plant_id} plant={p} getWishlist={this.getWishes} />
+                {this.state.wishlistPlants.map(p => <PlantDisplay key={p.plant_id} plant={p} reloadList={this.getWishes} />
                 )} </div>
                
                 

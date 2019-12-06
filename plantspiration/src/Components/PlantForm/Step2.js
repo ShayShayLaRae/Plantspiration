@@ -40,8 +40,9 @@ export default class Step2 extends Component {
         })
             .then(() => {
                 store.getState()
+                
             })
-        alert('Plant added!');
+      
     }
 
     clickCompleteHandler() {
@@ -70,7 +71,6 @@ export default class Step2 extends Component {
             .then(() => {
                 store.getState()
             })
-            alert('Plant is Updated');
         }
 
     propagation_typeChangeHandler(event) {

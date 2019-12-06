@@ -11,14 +11,14 @@ export default class MyPlants extends Component{
         this.state= {myPlantsList: []}
     }
 
-    MyPlants=() => {
+    getMyPlants=() => {
         axios.get('/api/plants/myplants')
         .then(results => {
             this.setState({myPlantsList: results.data});
         });
     }
     componentDidMount() {
-        this.MyPlants()
+        this.getMyPlants()
     }
 
     render() {
@@ -34,7 +34,7 @@ export default class MyPlants extends Component{
                 </Link>
                 <div className='plantListCont'>
                 {this.state.myPlantsList.map(p => 
-                <PlantDisplay key={p.plant_id} plant={p} getMyPlants={this.MyPlants}/>
+                <PlantDisplay key={p.plant_id} plant={p} reloadList={this.getMyPlants}/>
                 )}</div>
                 
             </div>

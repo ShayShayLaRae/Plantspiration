@@ -46,6 +46,7 @@ class Login extends Component {
                     placeholder='Password'
                     type='password'
                     />
+                    <hr/>
                     <Link to='/my-plants'>
                         <button onClick={this.login}>
                             Login

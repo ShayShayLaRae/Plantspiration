@@ -8,22 +8,15 @@ import store from '../../ducks/store';
 
 export default class PlantDisplay extends Component {
 
-    getAllPlants=() => {
-        axios.get('/api/plants')
-        .then(results => {
-            this.setState({getAllPlants: results.data})
-        })
-    }
-
-    onClickDelete(plant_id) {
+    onClickDelete= (plant_id) => {
+        let me = this;
         let shouldDelete = window.confirm('Are you sure?');
         if (shouldDelete) {
             axios.delete(`/api/plant/${plant_id}`)
             .then(() => {
-                this.getAllPlants()
+                me.props.reloadList()
             })
-            alert('Plant Up-rooted')
-        }    
+        }  
     }
 
     savePlantRedux(plant) {
@@ -31,7 +24,7 @@ export default class PlantDisplay extends Component {
     }
 
     render() {
-        const { plant, getAllPlants, getWishes } = this.props;
+        const { plant, reloadList } = this.props;
         const { plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list } = plant;
         return (
             <div className='plantCont'>

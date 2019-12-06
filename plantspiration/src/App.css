@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.header {
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+}
 .App-logo {
   height: 40vmin;
 }

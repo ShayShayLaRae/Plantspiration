@@ -20,14 +20,14 @@ sun VARCHAR(30),
 acquired VARCHAR(20),
 current_list VARCHAR(30)
 );
-DROP TABLE IF EXISTS user_hash;
-DROP TABLE IF EXISTS posts;
+
 CREATE TABLE users (
 	user_id SERIAL PRIMARY KEY,
 	username VARCHAR(100),
 	email VARCHAR,
 	img TEXT
 );
+DROP TABLE IF EXISTS user_hash;
 CREATE TABLE user_hash (
 	hash_id SERIAL PRIMARY KEY,
 	hash TEXT,
@@ -36,6 +36,7 @@ CREATE TABLE user_hash (
 CREATE TABLE plant_room (
 	room_img TEXT
 	);
+DROP TABLE IF EXISTS posts;
 CREATE TABLE posts (
 	post_id SERIAL PRIMARY KEY,
 	title VARCHAR(40),

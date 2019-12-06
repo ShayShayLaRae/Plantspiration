@@ -21,7 +21,7 @@ export default class PlantForm extends Component{
                     <Route path='/plant/step2' component={Step2} />
                 </Switch>
                 <Link to='/my-plants'>
-                    <button className='btn' onClick={this.props.cancel}>
+                    <button className='btn' onClick={cancel}>
                         Cancel
                     </button>
                 </Link>
