@@ -9,6 +9,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const cors = require('cors');
 
 const app = express();
+app.use( express.static( `${__dirname}/../build` ) );
 app.use(express.json()); 
 app.use(session({
     resave: false,
