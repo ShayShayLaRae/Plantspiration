@@ -25,11 +25,11 @@ const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
 
 
 //Action Builder
-export const isAuthenticated = (users) => {
+export const setAuthenticated = (hasAuth) => {
     return{
         type: IS_AUTHENTICATED,
         payload: {
-            isAuthenticated: users.login
+            isAuthenticated: hasAuth
         }
     }
 }
