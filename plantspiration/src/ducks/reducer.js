@@ -12,7 +12,8 @@
     email: '',
     username: '',
     user_id: '',
-    img: ''
+    img: '',
+    isAuthenticated: false
 }
 
 const SET_STEP1 = 'SET_STEP1';
@@ -20,9 +21,18 @@ const SET_STEP2 = 'SET_STEP2';
 const CANCEL = 'CANCEL';
 const SELECT_PLANT= 'SELECT_PLANT';
 const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
+const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
 
 
 //Action Builder
+export const isAuthenticated = (users) => {
+    return{
+        type: IS_AUTHENTICATED,
+        payload: {
+            isAuthenticated: users.login
+        }
+    }
+}
 export const selectPlant = (plant) => {
     return{
         type: SELECT_PLANT,
@@ -62,11 +72,21 @@ export const setStep2 = (propagation_type, hardiness_zone, soil_type, sun, acqui
             current_list: current_list}
         }
     }
-export const cancel = (initialState) => {
+export const cancel = (img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun,acquired, current_list) => {
     
     return {
         type: CANCEL,
-        payload: {initialState}
+        payload: {
+            img_url: img_url,
+            common_name: common_name,
+            scientific_name: scientific_name,
+            propagation_type: propagation_type,
+            hardiness_zone: hardiness_zone,
+            soil_type: soil_type,
+            sun: sun,
+            acquired: acquired,
+            current_list: current_list
+        }
     }
 }
 export const updateUserInfo = (email, username, user_id, img) => {
@@ -98,6 +118,7 @@ export default function reducer(state = initialState, action) {
 
         case CANCEL:
             return {
+                ...state,
                 img_url: '',
                 common_name: '',
                 scientific_name: '',
@@ -116,6 +137,11 @@ export default function reducer(state = initialState, action) {
         case UPDATE_USER_INFO:
             return {
                 ...state, 
+                ...action.payload
+            }
+        case IS_AUTHENTICATED:
+            return{
+                ...state,
                 ...action.payload
             }
         default: return state
