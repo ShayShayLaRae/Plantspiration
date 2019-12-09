@@ -25,6 +25,7 @@ export default class PlantDisplay extends Component {
 
     render() {
         const { plant, reloadList } = this.props;
+        
         const { plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list } = plant;
         return (
             <div key={plant_id} className='plantCont'>

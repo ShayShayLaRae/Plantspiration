@@ -27,7 +27,7 @@ let Header = withCookies(class Header extends Component {
             user_id: '',
             img: ''
           })
-          cookies.set('currentuser', '');
+          cookies.remove('currentuser');
         })
       }
   
@@ -36,7 +36,7 @@ let Header = withCookies(class Header extends Component {
             <div className='header'>
                 <Link to='/'>
                     <div className='logo'>
-                        <strong>PlantSpiration</strong>
+                        <h1>PlantSpiration</h1>
                     </div>
                 </Link>
 

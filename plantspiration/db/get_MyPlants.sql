@@ -2,6 +2,7 @@
 -- WHERE current_list = 'MyPlants';
 SELECT
   plants.user_id,
+  plant_id,
   img_url,
   common_name,
   scientific_name,

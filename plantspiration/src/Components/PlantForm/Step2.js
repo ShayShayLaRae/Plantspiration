@@ -9,7 +9,8 @@ import axios from 'axios';
 export default class Step2 extends Component {
     constructor(){
         super();
-        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, selected_plant} = store.getState()
+        const {img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, user_id,
+             selected_plant} = store.getState()
         
         this.state = {
             propagation_type: propagation_type,
@@ -21,12 +22,14 @@ export default class Step2 extends Component {
             img_url: img_url,
             common_name: common_name,
             scientific_name: scientific_name,
+            user_id: user_id,
             selected_plant: selected_plant,
             isEditing: Object.keys(selected_plant).length > 0
         }
     }
 
     addPlant() {
+        let {current_user} = store.getState()
         axios.post(`/api/plant`, {
             img_url: this.state.img_url,
             common_name: this.state.common_name,
@@ -36,7 +39,8 @@ export default class Step2 extends Component {
             soil_type: this.state.soil_type,
             sun: this.state.sun,
             acquired: this.state.acquired,
-            current_list: this.state.current_list
+            current_list: this.state.current_list,
+            user_id: current_user.user_id
         })
             .then(() => {
                 store.getState()

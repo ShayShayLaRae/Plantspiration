@@ -62,7 +62,7 @@ export const setStep1 = (
             scientific_name: scientific_name}
     }
 }
-export const setStep2 = (propagation_type, hardiness_zone, soil_type, sun, acquired, current_list) => {
+export const setStep2 = (propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, user_id) => {
     return {
         type: SET_STEP2,
         payload: {
@@ -71,7 +71,8 @@ export const setStep2 = (propagation_type, hardiness_zone, soil_type, sun, acqui
             soil_type: soil_type,
             sun: sun,
             acquired: acquired,
-            current_list: current_list}
+            current_list: current_list,
+            user_id: user_id}
         }
     }
 export const cancel = (img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun,acquired, current_list) => {

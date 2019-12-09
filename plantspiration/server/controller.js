@@ -58,12 +58,13 @@ module.exports = {
         })
     },
     addPlant(req, res) {
+        console.log('addPlant incoming request', req.body);
         const db = req.app.get('db')
         const {
-            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
+            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, user_id
         } = req.body
         db.add_plant({
-            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list
+            img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list, user_id
         })
         .then(result => {
             res.status(200).send(result)
