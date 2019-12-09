@@ -27,7 +27,7 @@ export default class PlantDisplay extends Component {
         const { plant, reloadList } = this.props;
         const { plant_id, img_url, common_name, scientific_name, propagation_type, hardiness_zone, soil_type, sun, acquired, current_list } = plant;
         return (
-            <div className='plantCont'>
+            <div key={plant_id} className='plantCont'>
                 <div className='plant_imgCont'>
                 <img src={img_url} alt='plant' className='plant_img' />
                 </div>

@@ -1,5 +1,3 @@
--- SELECT * FROM plants
--- WHERE current_list = 'Wishlist';
 SELECT
   plants.user_id,
   img_url,
@@ -14,5 +12,4 @@ SELECT
 FROM
   plants
 INNER JOIN users ON users.user_id = plants.user_id
-WHERE plants.user_id = $1
-AND current_list = 'Wishlist';
+WHERE plants.user_id = $1;

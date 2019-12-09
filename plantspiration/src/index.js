@@ -6,13 +6,16 @@ import {Provider} from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import store from './ducks/store';
+import { CookiesProvider } from 'react-cookie';
 
 ReactDOM.render(
+    <CookiesProvider>
     <Provider store={store}>
     <HashRouter>
         <App />
     </HashRouter>
     </Provider>
+    </CookiesProvider>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

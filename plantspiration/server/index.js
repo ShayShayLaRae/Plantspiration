@@ -9,7 +9,7 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const cors = require('cors');
 
 const app = express();
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static( `${__dirname}/../build` ) );
 app.use(express.json()); 
 app.use(session({
     resave: false,
@@ -27,8 +27,8 @@ app.post('/auth/logout', authCtrl.logout);
 //Plant Endpoints
 app.post('/api/plant', ctrl.addPlant)
 app.get('/api/plants', ctrl.allPlants)
-app.get('/api/plants/myplants', ctrl.getMyPlants)
-app.get('/api/plants/wishlist', ctrl.getWishlist)
+app.get('/api/plants/myplants/:user_id', ctrl.getMyPlants)
+app.get('/api/plants/wishlist/:user_id', ctrl.getWishlist)
 app.get('/api/plants/myplants', ctrl.getPropagations)
 app.get('/api/plants/:plant_id', ctrl.aPlant)
 app.put('/api/plant/:plant_id', ctrl.editPlant)

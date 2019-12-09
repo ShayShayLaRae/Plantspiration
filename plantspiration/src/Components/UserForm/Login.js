@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import { updateUserInfo, setAuthenticated } from '../../ducks/reducer';
 import { connect } from 'react-redux';
 import store from '../../ducks/store';
+import {withCookies} from 'react-cookie';
 import Swal from 'sweetalert2';
 
 class Login extends Component {
@@ -19,20 +20,24 @@ class Login extends Component {
 
     login = () => {
         const { email, password } = this.state
+        const { cookies } = this.props;
         axios
             .post('/auth/login', { email, password })
             .then(res => {
                 if(res.status >= 200 && res.status <= 299) {
-                    store.dispatch(setAuthenticated(true))
+                    store.dispatch(setAuthenticated(true, res.data.user))
+                    cookies.set('currentuser',JSON.stringify(res.data.user))
                 } else {
-                    store.dispatch(setAuthenticated(false))
+                    store.dispatch(setAuthenticated(false, {}))
                 }
                 this.props.updateUserInfo(res.data.user)
                 Swal.fire(res.data.message)
                 this.props.history.push('/my-plants')
             })
             .catch(err => {
-                Swal.fire(err.response.data.message)
+                console.log('error', err);
+                
+                // Swal.fire(err.data.message)
             })
     }
     render() {
@@ -68,4 +73,4 @@ class Login extends Component {
     }
 }
 
-export default connect(null, {updateUserInfo})(Login)
+export default withCookies(connect(null, {updateUserInfo})(Login))

@@ -13,7 +13,8 @@
     username: '',
     user_id: '',
     img: '',
-    isAuthenticated: false
+    isAuthenticated: false,
+    current_user: {}
 }
 
 const SET_STEP1 = 'SET_STEP1';
@@ -25,11 +26,12 @@ const IS_AUTHENTICATED = 'IS_AUTHENTICATED';
 
 
 //Action Builder
-export const setAuthenticated = (hasAuth) => {
+export const setAuthenticated = (hasAuth, userObj) => {
     return{
         type: IS_AUTHENTICATED,
         payload: {
-            isAuthenticated: hasAuth
+            isAuthenticated: hasAuth,
+            current_user: userObj
         }
     }
 }

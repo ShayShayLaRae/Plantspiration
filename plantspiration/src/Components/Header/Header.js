@@ -5,9 +5,9 @@ import {connect} from 'react-redux';
 import {updateUserInfo} from '../../ducks/reducer';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import {withCookies} from 'react-cookie';
 
-
-export default class Header extends Component {
+let Header = withCookies(class Header extends Component {
     constructor() {
         super();
         this.state = {
@@ -18,6 +18,7 @@ export default class Header extends Component {
         }
     }
     logout = () => {
+        let {cookies} = this.props;
         axios.post('/auth/logout').then(res => {
           Swal.fire(res.data.message)
           updateUserInfo({
@@ -26,6 +27,7 @@ export default class Header extends Component {
             user_id: '',
             img: ''
           })
+          cookies.set('currentuser', '');
         })
       }
   
@@ -76,8 +78,7 @@ export default class Header extends Component {
             </div>
         )
     }
-}
-function mapStateToProps(reduxState) {
-   return reduxState
-  }
-  connect(mapStateToProps, {updateUserInfo})(Header)
+})
+export default Header;
+function mapStateToProps(reduxState) { return reduxState }
+connect(mapStateToProps, {updateUserInfo})(Header)

@@ -14,7 +14,7 @@ module.exports = {
 
     getMyPlants(req,res) {
         const db = req.app.get('db')
-        db.get_MyPlants()
+        db.get_MyPlants(req.params.user_id)
         .then(result => {
             res.status(200).send(result)
         }).catch(err => {
@@ -23,7 +23,7 @@ module.exports = {
     },
     getWishlist(req,res) {
         const db = req.app.get('db')
-        db.get_Wishlist()
+        db.get_Wishlist(req.params.user_id)
         .then(result => {
             res.status(200).send(result)
         }).catch(err => {

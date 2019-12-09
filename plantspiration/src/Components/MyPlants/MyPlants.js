@@ -3,8 +3,9 @@ import './MyPlants.css';
 import axios from 'axios';
 import PlantDisplay from '../PlantDisplay/PlantDisplay';
 import {Link} from 'react-router-dom';
+import store from '../../ducks/store';
 
-
+   
 export default class MyPlants extends Component{
     constructor() {
         super();
@@ -15,7 +16,8 @@ export default class MyPlants extends Component{
     }
 
     getMyPlants = () => {
-        axios.get('/api/plants/myplants')
+        let {current_user} = store.getState()
+        axios.get(`/api/plants/myplants/${current_user.user_id}`)
         .then(results => {
             this.setState({myPlantsList: results.data});
         });
@@ -43,7 +45,7 @@ export default class MyPlants extends Component{
                 </Link>
                 <div className='plantListCont'>
                 {this.state.myPlantsList.map(p => 
-                <PlantDisplay key={p.plant_id} plant={p} reloadList={this.getMyPlants}/>
+                <PlantDisplay key={p.plant_id + p.common_name} plant={p} reloadList={this.getMyPlants}/>
                 )}</div>
                 
             </div>
