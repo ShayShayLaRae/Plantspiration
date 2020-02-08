@@ -30,6 +30,7 @@ body{
   height: 100%;
   position: relative;
   background-image: url('https://www.elsetge.cat/myimg/f/4-42909_koziel-moss-white-brick-wallpaper-old-bricks.jpg');
+  /* background-image: url('https://ae01.alicdn.com/kf/HTB1L_DrRVXXXXaTXXXXq6xXFXXXl/8x8FT-Dark-Brown-Wooden-Planks-Timber-Wall-Custom-Photo-Studio-Background-Backdrop-Vinyl-240cm-x-240cm.jpg'); */
   background-repeat: repeat-y;
   background-size: 100%;
 }

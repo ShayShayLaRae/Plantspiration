@@ -17,6 +17,13 @@ let Header = withCookies(class Header extends Component {
             img: '',
         }
     }
+    //TODO Make this actually work instead of mock-up.
+    // if (isAuthenticated = true) {
+    //     Plantspiration, Login, Register
+    // } else {
+    //     Plantspiration, MyPlants, Wishlist, Logout
+    // }
+
     logout = () => {
         let {cookies} = this.props;
         axios.post('/auth/logout').then(res => {
