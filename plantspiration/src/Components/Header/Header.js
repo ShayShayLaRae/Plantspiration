@@ -59,10 +59,11 @@ let Header = withCookies(class Header extends Component {
                             Wishlist
                         </button>
                     </Link>
-
-                    {/* <button className='btn'>
-                        *
-                    </button> */}
+                    <Link to='/chat'>
+                        <button className='btn'>
+                            Chat
+                        </button>
+                    </Link>
                     <Link to='/login'>
                         <button className='btn'>
                         Login

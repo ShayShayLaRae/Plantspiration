@@ -6,6 +6,7 @@ import WishList from './Components/Wishlist/Wishlist';
 import PlantForm from './Components/PlantForm/PlantForm';
 import Register from './Components/UserForm/Register';
 import Login from './Components/UserForm/Login';
+import Chat from './Components/Chat/Chat';
 
 
 export default (
@@ -16,7 +17,7 @@ export default (
         <Route path='/plant' component={PlantForm}/>
         <Route path='/register' component={Register}/>
         <Route path='/login' component={Login}/>
-        {/* <Route path='/chat' component={Chat}/> */}
+        <Route path='/chat' component={Chat}/>
     </Switch>
 
 )
