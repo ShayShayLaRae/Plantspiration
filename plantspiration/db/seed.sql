@@ -45,6 +45,13 @@ CREATE TABLE posts (
 	likes INT,
 	user_id INT REFERENCES users(user_id)
 );
+DROP TABLE IF EXISTS chat_message;
+CREATE TABLE chat_message (
+  message_id SERIAL PRIMARY KEY,
+  chat_cont TEXT,
+  post_time TIMESTAMPTZ,
+  user_id INT REFERENCES users(user_id)
+);
 
 INSERT INTO users (username, email, img)
 VALUES 
